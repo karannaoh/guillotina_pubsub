@@ -11,4 +11,5 @@ def includeme(root):
     custom application initialization here
     """
     configure.scan('guillotina_pubsub.api')
+    configure.scan('guillotina_pubsub.subscribers')
     # configure.scan('guillotina_pubsub.install')
