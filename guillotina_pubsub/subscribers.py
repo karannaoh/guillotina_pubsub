@@ -8,8 +8,8 @@ import json
 
 @configure.subscriber(for_=(IResource, IObjectModifiedEvent))
 async def objectModify(user, event):
-    print(app_settings)
-    print(user)
+    # print(app_settings)
+    # print(user)
     util = get_utility(IPubSubUtility)
     await util.publish("test_channel","process",json.dumps({'id': "obj.id",'uuid': "obj.__uuid__",'title': "obj.title"}))
-    print(event)
+    # print(event)
