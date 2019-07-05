@@ -12,4 +12,3 @@ def includeme(root):
     """
     configure.scan('guillotina_pubsub.api')
     configure.scan('guillotina_pubsub.subscribers')
-    # configure.scan('guillotina_pubsub.install')

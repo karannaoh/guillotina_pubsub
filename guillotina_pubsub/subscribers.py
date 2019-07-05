@@ -7,9 +7,10 @@ from guillotina.interfaces import IPubSubUtility
 import json
 
 @configure.subscriber(for_=(IResource, IObjectModifiedEvent))
-async def objectModify(user, event):
-    # print(app_settings)
-    # print(user)
+async def objectModify(obj, event):
     util = get_utility(IPubSubUtility)
-    await util.publish("test_channel","process",json.dumps({'id': "obj.id",'uuid': "obj.__uuid__",'title': "obj.title"}))
-    # print(event)
+    await util.publish("test_channel","process",json.dumps({
+        'id': obj.id,
+        'uuid': obj.__uuid__,
+        'payload': event.payload
+    }))
